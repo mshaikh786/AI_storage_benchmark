@@ -1,0 +1,30 @@
+The environment.yml can be run to recreate the environment otherwise, the following is required to this test:
+- Python 3.7
+- cudatoolkit => 11.0
+- NumPy => 1.18
+- PyTorch => 1.8.0
+
+
+Tiny ImageNet dataset can be download from:
+> wget http://cs231n.stanford.edu/tiny-imagenet-200.zip 
+> unzip tiny-imagenet-200.zip
+
+To create the environment please run:
+
+> conda env create -f environment.yml
+
+The SLURM jobscript provided is a sample for how to run the test. 
+For SLURM submit: 
+> sbatch jobscript
+
+If running as an unprivileged user, you may want to comment out line 30 in dload.py script.
+This line attempts to drop Linux file cache to avoid caching effect (i.e. emulating IO_DIRECT)
+
+The script output is redirected to a file called raw.output
+To generate a concise report with metrics to be inserted in the prescibed evaluation table in the RFP document
+plese run the following post-procesing script:
+
+> python report.py --file raw.output
+
+The metrics reported are in the following format:
+min, max, mean, standard deviation
