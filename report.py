@@ -27,12 +27,15 @@ for i in range(len(buf)):
  if "Total time" in buf[i]:
     total.append(float(buf[i].strip().split()[2]))
 
-print(f"The following report contains min,max,mean and standard dev")
+print("The following report contains min,max,mean and standard dev \n")
 
-print(f"Total time:        {np.min(total):.3f} , {np.max(total):.3f} , {np.mean(total):.3f} ,  {np.std(total):.3f}")
-print(f"I/O Time:          {np.min(io):.3f} , {np.max(io):.3f} , {np.mean(io):.3f} , {np.std(io):.3f}")
-print(f"Samples/seconds:   {np.min(sps):.3f} , {np.max(sps):.3f}, {np.mean(sps):.3f} , {np.std(sps):.3f}")
-print(f"Bandwidth MB/s:    {np.min(bw):.3f} , {np.max(bw):.3f} , {np.mean(bw):.3f}  , {np.std(bw):.3f}")
+
+print("Total time     : %12.3f  %12.3f  %12.3f  %12.3f"%(np.min(total),np.max(total),np.mean(total),np.std(total)))
+print("I/O Time       : %12.3f  %12.3f  %12.3f  %12.3f"%(np.min(io),np.max(io) , np.mean(io) ,np.std(io)))
+print("Samples/seconds: %12.3f  %12.3f  %12.3f  %12.3f"%(np.min(sps),np.max(sps) , np.mean(sps) ,np.std(sps)))
+print("Bandwidth MB/s : %12.3f  %12.3f  %12.3f  %12.3f"%(np.min(bw),np.max(bw) , np.mean(bw) ,np.std(bw)))
+
+
 
 
 
